@@ -1,0 +1,77 @@
+# 这是一个 mods.toml 示例文件，包含与加载模组相关的数据。
+# 其中包含多个必填字段 (#mandatory) 和许多可选字段 (#optional)。
+# 文件格式遵循标准 TOML 格式 v0.5.0。
+# 注意：此文件中包含几个 TOML 列表。
+# 更多关于 TOML 格式的信息请访问：https://github.com/toml-lang/toml
+
+# 指定要加载的模组加载器类型 - 对于常规 FML @Mod 模组应为 javafml
+modLoader = "javafml" #mandatory
+# 模组加载器的版本范围 - 对于 FML @Mod 应为 FML 版本号（当前是47）
+loaderVersion = "${loader_version_range}" #mandatory
+# 模组的许可证。这是必填元数据，用于明确您的再分发权限。
+# 许可证选项参考：https://choosealicense.com/。默认版权声明为"保留所有权利"。
+license = "${mod_license}"
+# 当模组出现问题时供用户反馈的链接
+#issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/" #optional
+
+# 模组列表 - 允许的数量由具体加载器决定
+[[mods]] #mandatory
+# 模组的ID
+modId = "${mod_id}" #mandatory
+# 模组版本号
+version = "${mod_version}" #mandatory
+# 模组显示名称
+displayName = "${mod_name}" #mandatory
+# 检查模组更新的JSON URL，规范参考：https://docs.neoforge.net/docs/misc/updatechecker/
+#updateJSONURL="https://change.me.example.invalid/updates.json" #optional
+# 模组主页链接，会在模组UI中显示
+#displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
+# 模组LOGO文件名（位于模组JAR根目录）
+#logoFile="wenyanextra.png" #optional
+# 模组UI中显示的文本
+#credits="" #optional
+# 模组作者信息
+authors = "${mod_authors}" #optional
+
+# 模组描述文本（支持多行）(#mandatory)
+description = '''${mod_description}'''
+
+# [[mixins]] 块用于向FML声明mixin配置
+[[mixins]]
+config = "${mod_id}.mixins.json"
+
+# [[accessTransformers]] 块用于声明AT文件位置
+# 如果省略此块，将尝试从 META-INF/accesstransformer.cfg 加载
+#[[accessTransformers]]
+#file="META-INF/accesstransformer.cfg"
+
+# coremods配置文件路径不可配置，总是从 META-INF/coremods.json 加载
+
+# 依赖项声明 - 使用.表示对特定modid的依赖（可选）
+[[dependencies."${mod_id}"]] #optional
+# 依赖项的modid
+modId = "neoforge" #mandatory
+# 依赖类型，可选："required"（必需）、"optional"（可选）、"incompatible"（不兼容）或"discouraged"（不推荐）（不区分大小写）
+type = "required" #mandatory
+# 可选字段，说明依赖关系的原因或不兼容原因
+# reason="..."
+# 依赖项的版本范围
+versionRange = "${neo_version_range}" #mandatory
+# 依赖项的加载顺序关系：BEFORE（先于依赖项加载）、AFTER（后于依赖项加载）、NONE（无顺序要求）
+ordering = "NONE"
+# 依赖项应用端：BOTH（双端）、CLIENT（仅客户端）、SERVER（仅服务端）
+side = "BOTH"
+
+# 另一个依赖项示例
+[[dependencies."${mod_id}"]]
+modId = "minecraft"
+type = "required"
+# 此版本范围声明最低需要当前MC版本，但不包括下一个主版本
+versionRange = "${minecraft_version_range}"
+ordering = "NONE"
+side = "BOTH"
+
+# features 用于声明需要的游戏环境特性（本例声明需要OpenGL 3.2+版本）
+# 特性检测是端敏感的，例如声明此项不会阻止模组在服务端加载
+#[features."${mod_id}"]
+#openGLVersion="[3.2,)"
