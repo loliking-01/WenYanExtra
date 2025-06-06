@@ -1,5 +1,3 @@
-<p><img src="./title.png" alt="Logo" width="720"></p>
-
 <h1>吾有一术 拓展 <br></h1>
 
 原模组：[吾有一术](https://github.com/gyxx-xc/WenyanNature)
