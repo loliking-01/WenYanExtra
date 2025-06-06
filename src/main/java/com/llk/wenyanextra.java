@@ -11,7 +11,7 @@ import org.slf4j.Logger;
 @Mod(wenyanextra.MODID)
 public class wenyanextra {
     public static final String MODID = "wenyanextra";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
 
     public wenyanextra(IEventBus modEventBus, ModContainer modContainer) {

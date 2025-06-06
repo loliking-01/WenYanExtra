@@ -12,7 +12,7 @@ import static indi.wenyan.interpreter.utils.WenyanPackages.WENYAN_BASIC_PACKAGES
  * @author I_am_a_lolikong
  * @version 1.0
  * @className WenYanExtraPackages
- * @Description TODO 文言扩展包的加载类
+ * @Description TODO 文言扩展包，有些功能可以在这里直接加入
  * @date 2025/6/5 21:47
  */
 public class WenYanExtraPackages {

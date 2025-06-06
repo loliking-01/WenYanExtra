@@ -64,13 +64,12 @@ public class Registration {
                 ));
 
         CREATIVE_MODE_TABS.register("wenyanextra", () -> CreativeModeTab.builder()
-                .title(Component.translatable("title.wenyantextra.create_tab"))
-                .withTabsBefore(CreativeModeTabs.COMBAT)
+                .title(Component.translatable("title.wenyanextra.create_tab"))
+                .withTabsBefore(indi.wenyan.setup.Registration.CREATIVE_MODE_TABS.getRegistryName())
                 .icon(() -> TEST_ITEM.get().getDefaultInstance())
                 .displayItems((parameters, output) -> {
                     output.accept(TEST_ITEM.get());
-                    output.accept(TEST_BLOCK.get());
-
+                    output.accept(TEST_BLOCKITEM.get());
                 }).build());
         //加载术法
         WenyanExtraInitializer.init();

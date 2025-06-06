@@ -7,7 +7,7 @@ import indi.wenyan.interpreter.utils.WenyanPackages;
  * @author I_am_a_lolikong
  * @version 1.0
  * @className WenyanExtraInitializer
- * @Description TODO 文言拓展功能的运行库初始化类
+ * @Description TODO 文言拓展功能初始化
  * @date 2025/6/6 8:28
  */
 public class WenyanExtraInitializer {
@@ -17,6 +17,6 @@ public class WenyanExtraInitializer {
     }
 
     private static WenyanRuntime createExtraPackage() {
-        return new WenYanExtraPackages().handEnvironment(null, null); // 这里传入 null 初始化
+        return new WenYanExtraPackages().handEnvironment(null, null);
     }
 }
